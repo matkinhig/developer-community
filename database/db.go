@@ -2,7 +2,7 @@ package database
 
 import (
 	"github.com/jinzhu/gorm"
-	"github.com/matkinhig/developer-community.git/config"
+	"github.com/matkinhig/developer-community/config"
 )
 
 func Connect() (*gorm.DB, error) {

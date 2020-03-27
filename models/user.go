@@ -11,13 +11,13 @@ import (
 )
 
 type User struct {
-	ID                uint32    `gorm:"primary_key;auto_increment" json:"ID"`
+	ID                uint32    `gorm:"primary_key;auto_increment" json:"id"`
 	UserLogin         string    `gorm:"size:60; not null; unique" json:"user_login"`
 	UserPass          string    `gorm:"size:255; not null" json:"user_pass"`
 	UserNicename      string    `gorm:"size:50; not null;" json:"user_nicename"`
 	UserEmail         string    `gorm:"size:100; not null" json:"user_email"`
 	UserURL           string    `gorm:"size:100" json:"user_url"`
-	UserRegisterd     time.Time `gorm:"default:current_timestamp" json:"user_registered"`
+	UserRegistered    time.Time `gorm:"default:current_timestamp" json:"user_registered"`
 	UserActivationKey string    `gorm:"size:255" json:"user_activation_key"`
 	UserStatus        uint32    `json:"user_status"`
 	DisplayName       string    `gorm:"size:250" json:"display_name"`
@@ -36,7 +36,7 @@ func (u *User) Prepare() {
 	u.ID = 0
 	u.UserLogin = html.EscapeString(strings.TrimSpace(u.UserLogin))
 	u.UserEmail = html.EscapeString(strings.TrimSpace(u.UserEmail))
-	u.UserRegisterd = time.Now()
+	u.UserRegistered = time.Now()
 }
 
 func (u *User) Validate(str string) error {

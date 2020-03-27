@@ -19,7 +19,7 @@ func (h *handlerUser) Save(u models.User) (models.User, error) {
 	done := make(chan bool)
 	go func(ch chan<- bool) {
 		defer close(ch)
-		err := h.db.Model(&models.User{}).Create(&u).Error
+		err := h.db.Model(&models.User{}).Table("wp_users").Create(&u).Error
 		if err != nil {
 			ch <- false
 			return

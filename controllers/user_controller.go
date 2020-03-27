@@ -38,7 +38,7 @@ func CreateUser(g *gin.Context) {
 			responses.FAIL(g, http.StatusUnprocessableEntity, err)
 			return
 		}
-		g.Writer.Header().Set("Location", fmt.Sprintf("%s%s/%d", r.Host, r.RequestURI, user.ID))
+		g.Writer.Header().Set("Location", fmt.Sprintf("%s%s/%d", g.Request.Host, g.Request.URL, rs.ID))
 		responses.DONE(g, http.StatusCreated, rs)
 	}(handler)
 }

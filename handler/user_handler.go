@@ -11,7 +11,7 @@ type handlerUser struct {
 }
 
 func NewHandlerUser(db *gorm.DB) *handlerUser {
-	return &handerUser{db}
+	return &handlerUser{db}
 }
 
 func (h *handlerUser) Save(u models.User) (models.User, error) {
@@ -29,5 +29,5 @@ func (h *handlerUser) Save(u models.User) (models.User, error) {
 	if channels.OK(done) {
 		return u, nil
 	}
-	return nil, err
+	return u, err
 }

@@ -62,7 +62,7 @@ func (h *handlerUser) FindByUserLogin(str string) (models.User, error) {
 	done := make(chan bool)
 	go func(ch chan<- bool) {
 		defer close(ch)
-		err = h.db.Model(&models.User{}).Table("wp_users").Find(&user).Error
+		err = h.db.Model(&models.User{}).Table("wp_users").Where("user_login = ? ", str).Find(&user).Error
 		if err != nil {
 			ch <- false
 			return

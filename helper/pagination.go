@@ -16,8 +16,8 @@ func (self *Pagination) GetRow() uint {
 }
 
 func (self *Pagination) GetLimit() uint {
-	if self.Limit == 0 || self.Limit > 5 {
-		return 5
+	if self.Limit == 0 || self.Limit > 20 {
+		return 20
 	}
 	return self.Limit
 }

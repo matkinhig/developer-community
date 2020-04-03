@@ -11,6 +11,6 @@ func initRouterUser(e *gin.Engine) {
 		groupE.POST("", controllers.CreateUser)
 		groupE.GET("", controllers.GetUsers)
 		groupE.PUT(":userLogin", controllers.UpdateUser)
-		groupE.POST(":userLogin", controllers.GetUser)
+		groupE.GET(":userLogin", controllers.GetUser)
 	}
 }

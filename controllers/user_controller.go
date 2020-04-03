@@ -70,7 +70,7 @@ func GetUsers(g *gin.Context) {
 
 func GetUser(g *gin.Context) {
 	str := g.Param("userLogin")
-	if str != "" {
+	if str == "" {
 		responses.FAIL(g, http.StatusUnprocessableEntity, errors.New("Required User Login"))
 		return
 	}

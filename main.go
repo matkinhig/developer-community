@@ -7,7 +7,7 @@ import (
 	"github.com/matkinhig/developer-community/server"
 )
 
-const port = ":50051"
+// const port = ":50051"
 
 func main() {
 	fmt.Println("start golang...")
